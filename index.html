@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Tenemos una cita ❤️</title>
+<title>Tenemos una cita ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{
@@ -152,7 +152,7 @@ Tenemos una cita...
 🍷 Vino y sushi...
 </div>
 <div class="texto">
-Del postre me encargo yo ❤️🫦
+Del postre me encargo yo ❤️
 </div>
 <div class="fecha">
 📅 12/6
@@ -168,11 +168,11 @@ Confirmar 💌
 const botonNo = document.getElementById("no");
 const botonSi = document.getElementById("si");
 const frases = [
-"¿Seguro??????",
+"¿Seguro? 🧐",
 "Pensalo bien ❤️",
-"Dale nene 🥺",
-"Si decís que no, lloro 🧐",
-"Intentá otra vez 🫠"
+"Dale o lloro 🥺",
+"Si decís que no te bloqueo 😉",
+"Dale nene 😈"
 ];
 let contador = 0;
 botonNo.addEventListener("click",()=>{
@@ -182,16 +182,13 @@ botonNo.style.left = x + "px";
 botonNo.style.top = y + "px";
 botonNo.innerText = frases[contador % frases.length];
 contador++;
+});
 botonSi.addEventListener("click",()=>{
-
 document.getElementById("primera").style.opacity="0";
 document.getElementById("primera").style.pointerEvents="none";
-
 document.getElementById("segunda").style.opacity="1";
 document.getElementById("segunda").style.pointerEvents="all";
-
 });
-
 function crearCorazon(){
 const corazon=document.createElement("div");
 corazon.className="corazon";
