@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenemos una cita ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+font-family:'Poppins',sans-serif;
+overflow:hidden;
+height:100vh;
+}
+.pantalla{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('IMG_0355.jpeg');
+background-size:cover;
+background-position:center;
+transition:1s;
+}
+.contenido{
+width:90%;
+max-width:450px;
+text-align:center;
+padding:35px;
+border-radius:30px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+border:1px solid rgba(255,255,255,.2);
+}
+.titulo{
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+color:white;
+line-height:1.1;
+}
+.subtitulo{
+font-family:'Great Vibes',cursive;
+font-size:3.2rem;
+color:white;
+margin-top:10px;
+}
+.botones{
+margin-top:35px;
+position:relative;
+height:130px;
+}
+button{
+cursor:pointer;
+border:none;
+border-radius:999px;
+padding:15px 40px;
+font-size:18px;
+transition:.3s;
+}
+#si{
+background:#ff7fa8;
+color:white;
+box-shadow:0 0 20px rgba(255,127,168,.5);
+}
+#si:hover{
+transform:scale(1.08);
+}
+#no{
+position:absolute;
+left:60%;
+background:white;
+color:#ff7fa8;
+}
+#segunda{
+opacity:0;
+pointer-events:none;
+}
+.frase{
+font-family:'Great Vibes',cursive;
+font-size:3rem;
+color:#ffd6e6;
+}
+.texto{
+margin-top:15px;
+color:white;
+font-size:1.2rem;
+}
+.fecha{
+font-size:2rem;
+margin-top:20px;
+color:#ffd6e6;
+}
+.confirmar{
+display:inline-block;
+margin-top:30px;
+padding:16px 35px;
+background:#ff7fa8;
+color:white;
+text-decoration:none;
+border-radius:999px;
+font-size:18px;
+box-shadow:0 0 20px rgba(255,127,168,.5);
+}
+.corazon{
+position:fixed;
+color:#ff9fc0;
+font-size:20px;
+pointer-events:none;
+animation:subir linear forwards;
+}
+@keyframes subir{
+0%{
+transform:translateY(0);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+</style>
+</head>
+<body>
+<div id="primera" class="pantalla">
+<div class="contenido">
+<div class="titulo">
+Tenemos una cita...
+</div>
+<div class="subtitulo">
+¿Aceptas? ❤️
+</div>
+<div class="botones">
+<button id="si">Sí</button>
+<button id="no">No</button>
+</div>
+</div>
+</div>
+<div id="segunda" class="pantalla">
+<div class="contenido">
+<div class="frase">
+🍷 Vino y sushi...
+</div>
+<div class="texto">
+Del postre me encargo yo ❤️
+</div>
+<div class="fecha">
+📅 12/6
+</div>
+<a class="confirmar"
+href="https://wa.me/5492644181763?text=Hola%20❤️%20Acepto%20la%20cita%20del%2012/6%20🍷🍣"
+target="_blank">
+Confirmar 💌
+</a>
+</div>
+</div>
+<script>
+const botonNo = document.getElementById("no");
+const botonSi = document.getElementById("si");
+const frases = [
+"¿Segura? 😏",
+"Pensalo bien ❤️",
+"Dale que sí 🥺",
+"No vale decir no 😘",
+"Intentá otra vez 😆"
+];
+let contador = 0;
+botonNo.addEventListener("click",()=>{
+const x = Math.random()*220;
+const y = Math.random()*90;
+botonNo.style.left = x + "px";
+botonNo.style.top = y + "px";
+botonNo.innerText = frases[contador % frases.length];
+contador++;
+});
+botonSi.addEventListener("click",()=>{
+document.getElementById("primera").style.opacity="0";
+document.getElementById("primera").style.pointerEvents="none";
+document.getElementById("segunda").style.opacity="1";
+document.getElementById("segunda").style.pointerEvents="all";
+});
+function crearCorazon(){
+const corazon=document.createElement("div");
+corazon.className="corazon";
+corazon.innerHTML="❤️";
+corazon.style.left=Math.random()*100+"vw";
+corazon.style.bottom="-20px";
+corazon.style.animationDuration=(Math.random()*3+4)+"s";
+document.body.appendChild(corazon);
+setTimeout(()=>{
+corazon.remove();
+},7000);
+}
+setInterval(crearCorazon,800);
+</script>
+</body>
+</html>
