@@ -184,10 +184,54 @@ botonNo.innerText = frases[contador % frases.length];
 contador++;
 });
 botonSi.addEventListener("click",()=>{
+
+document.body.innerHTML = `
+<div style="
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:black;
+color:white;
+text-align:center;
+">
+
+<div style="
+font-size:90px;
+animation:latir 1s infinite;
+">
+❤️
+</div>
+
+<h1 style="
+font-family:'Great Vibes',cursive;
+font-size:60px;
+margin-top:20px;
+">
+Sabía que dirías que sí...
+</h1>
+
+</div>
+
+<style>
+@keyframes latir{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.2);}
+}
+</style>
+`;
+
+setTimeout(()=>{
+
 document.getElementById("primera").style.opacity="0";
 document.getElementById("primera").style.pointerEvents="none";
+
 document.getElementById("segunda").style.opacity="1";
 document.getElementById("segunda").style.pointerEvents="all";
+
+location.reload();
+
 });
 function crearCorazon(){
 const corazon=document.createElement("div");
